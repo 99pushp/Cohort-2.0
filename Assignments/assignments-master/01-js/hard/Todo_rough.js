@@ -10,51 +10,67 @@
   Once you've implemented the logic, test your code by running
 */
 
+let todoList = [];
 
-class Todo{
+class Todo {
 
-  constructor() {
-    this.todoList = [];
-  }
-  clear(){
-    this.todoList=[];
+
+//clear: deletes all todos
+clear(){
+    todoList=[];
 }
 
 
 
 //- get(indexOfTodo): returns todo at given index
 get(indexOfTodo){
-  if(indexOfTodo<this.todoList.length)
-    {return this.todoList[indexOfTodo]};
-    return null;
+    return todoList[indexOfTodo];
 }
 
 
 //- getAll: returns all todos
 getAll(){
-    return this.todoList;
+    return todoList;
 }
 
 
 //- update(index, updatedTodo): update todo at given index
 update(index, updatedTodo){
-  if(index<this.todoList.length)
-  {this.todoList[index]=updatedTodo};
+    if(index<todoList.length)
+    {todoList[index]=updatedTodo};
 }
 
 //add(todo): adds todo to list of todos
 add(todoItem) {
-    this.todoList.push(todoItem);
+    todoList.push(todoItem);
  }
 //remove(indexOfTodo): remove todo from list of todos
 remove(indexOfTodo){
-if(indexOfTodo < this.todoList.length)
-    {this.todoList.splice(indexOfTodo,1);}
+    todoList.splice(indexOfTodo,1);
+}
 
 
 }
-}
- 
-  //clear: deletes all todos
-  
-module.exports = Todo;
+
+const task1 = new Todo();
+
+/*task1.add('task 1');
+task1.add('task 2');
+task1.add('task 3');
+console.log(task1.getAll());
+task1.remove(1);
+console.log(task1.getAll());
+task1.remove(0);
+console.log(task1.getAll());
+task1.remove(2);
+console.log(task1.getAll());
+*/
+
+task1.add('Task 1');
+task1.add('Task 2');
+
+task1.update(3, 'dd');
+
+console.log(task1.getAll());
+
+
