@@ -1,14 +1,13 @@
-function counter(n){
-    
-        let interval = setInterval(()=>{
-            for(let i=0;i<=n;i++){
-        console.log(i);
-        if(i===n){
-            clearInterval(interval);
-        }
-            }
-    },1000);
 
+let n=30;
+var interval = setInterval(counter,1000);
+
+function counter(){
+if(n==0){
+    clearInterval(interval);
+}
+else{
+    console.log(n);n--;
+}
 }
 
-counter(2);
