@@ -42,18 +42,18 @@ app.get('/file/:fileName',(req,res)=>{
 //logic if file is in directory
 
         let fileName = req.params.fileName;
-        console.log('filename:',fileName);
+        //console.log('filename:',fileName);
         
         if(pathchecker(fileName)){
         let filepath = path.join(files_folder_path,fileName);
-        console.log('filepath:',filepath);
+        //console.log('filepath:',filepath);
         fs.readFile(filepath,'utf-8',(err,data)=>{
           res.status(200).send(data);
         })
         }
         else{
         //res.send("File not found");
-        res.status(404).send("file not found");
+        res.status(404).send("File not found");
         }
 })
 
@@ -65,21 +65,23 @@ app.get('/file/:fileName',(req,res)=>{
 app.get('/files',(req,res)=>{
   
   arrayofValidfiles = fs.readdirSync(files_folder_path);
-  console.log(typeof(arrayofValidfiles));
-  console.log(arrayofValidfiles);
+  //console.log(typeof(arrayofValidfiles));
+  //console.log(arrayofValidfiles);
   for(let i=0;i<arrayofValidfiles.length;i++){
-  console.log(arrayofValidfiles[i]);
+  //console.log(arrayofValidfiles[i]);
   }
-  res.send(fs.readdirSync(files_folder_path));//returns object
+  res.json(fs.readdirSync(files_folder_path));//returns object
 })
 
 
-
+app.all('*', (req, res) => {
+  res.status(404).send('Route not found');
+});
 
 
 //starting the server
 app.listen(port,function(){
-  console.log('server started at port: '+ port);
+  //console.log('server started at port: '+ port);
 })
 
 module.exports = app;
