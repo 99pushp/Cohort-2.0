@@ -46,4 +46,35 @@
   
   app.use(bodyParser.json());
   
+//defining the list
+let todoList = [];
+//defining the todo structure
+let todo = {
+  "id":Number,
+  "title":String,
+  "description":String
+}
+let todo1 = {
+  id : 0,
+  title: 'buy something',
+  description:"ice screan"
+}
+
+let todo2={
+  id : 1,
+  title: 'buy something2',
+  description:"ice screan2"
+}
+
+todoList.push(todo1);todoList.push(todo2);
+app.get('/todos',function(req,res){
+  res.status(200).json(todoList);
+})
+
+
+
+//starting the server
+app.listen(3002,()=>{
+  console.log("server started");
+})
   module.exports = app;
