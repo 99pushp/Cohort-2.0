@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum</title>
+</head>
+<body>
+    <br>
+    <input id="no1" type="text" placeholder="First number"> :a </input>
+    <br>
+    <br>
+    <input id="no2" type="text" placeholder="Second number"> :b </input>
+    <br> 
+    <br>
+    <button onclick="func()"> Sum </button>
+    <div id="divSum"></div>
+            
+    <script>
+function func(){
+
+        let x= parseInt(document.getElementById('no1').value);
+        let y= parseInt(document.getElementById('no2').value);
+        console.log('http://127.0.0.1:3000/?a=' + x + '&b=' + y);
+        fetch('http://127.0.0.1:3000/?a=' + x + '&b=' + y)
+        .then(function(response){
+            response.text()
+            .then(function(ans){
+                document.getElementById("divSum").innerHTML = ans;
+            })
+        })
+        return;
+    }
+    </script>
+</body>
+</html>
