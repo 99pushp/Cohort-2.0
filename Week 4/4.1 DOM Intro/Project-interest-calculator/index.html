@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI</title>
+</head>
+<body>
+    
+    <h2>SI Calculator</h2>
+    <br>
+    <input id="p" type="text" placeholder="principle"></input>
+    <br>
+    <br>
+    <input id="r" type="text" placeholder="rate"></input>
+    <br>
+    <br>
+    <input id="t" type="text" placeholder="time"></input>
+    <br>
+    <br>
+    <button id="btn" onclick="SI()"> CLICK </button>
+    <br>
+    <br>
+    <div id="container"></div>
+
+    <script>
+        function SI(){
+            let p = document.getElementById('p').value;
+            let r = document.getElementById('r').value;
+            let t = document.getElementById('t').value;
+            let c = document.getElementById('container');
+
+            fetch('http://127.0.0.1:3000/?'+"p="+p+"&r="+r+"&t="+t)
+            .then(function(response){
+                response.text()
+                .then(function(value){
+                    console.log(value);
+                    c.innerHTML = value;
+                })
+            })
+            return;
+        }
+</script>
+</body>
+</html>
