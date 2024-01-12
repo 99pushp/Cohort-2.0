@@ -4,7 +4,8 @@ const { createTodo, updateTodo } = require('./types');
 const {todo} = require("./db");
 //json body parser middleware
 app.use(express.json());
-
+const cors = require('cors');
+app.use(cors());
 //expected input 
 /**{
  * title:tile1
