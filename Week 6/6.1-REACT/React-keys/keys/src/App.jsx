@@ -20,7 +20,7 @@ function App() {
     setTodos([...todos,{
       id:counter++,
       title:Math.random(),
-      description:Math.random()
+      description:Math.random() 
     }])
   }
   function Todo ({title , description}){
