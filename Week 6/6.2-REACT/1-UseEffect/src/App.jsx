@@ -13,8 +13,6 @@ return (<div>
 
   <Todo id={selectedid}></Todo>
 </div>)
-
- 
 }
 
 function Todo({id}){
