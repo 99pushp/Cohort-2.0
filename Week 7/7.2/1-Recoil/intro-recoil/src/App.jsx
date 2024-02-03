@@ -15,8 +15,12 @@ function App() {
 
 
 function Count(){
+
+  console.log('xxx')
   return(
+    
 <div>
+   
    <CountRenderer ></CountRenderer>
   <Buttons></Buttons>
 </div>
